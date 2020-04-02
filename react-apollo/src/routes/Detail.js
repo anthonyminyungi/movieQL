@@ -9,11 +9,13 @@ const GET_MOVIE = gql`
     # This is for Apollo
     movie(id: $id) {
       # This is Real Query for my Server
+      id
       title
       medium_cover_image
       language
       description_intro
       rating
+      isLiked @client
     }
     suggestions(id: $id) {
       id
@@ -67,7 +69,11 @@ export default () => {
   return (
     <Container>
       <Column>
-        <Title>{loading ? 'Loading...' : data.movie.title}</Title>
+        <Title>
+          {loading
+            ? 'Loading...'
+            : `${data.movie.title} ${data.movie.isLiked ? '💖' : '😞'}`}
+        </Title>
         <Subtitle>
           {data?.movie?.language} · {data?.movie?.rating}
         </Subtitle>
