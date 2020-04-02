@@ -59,10 +59,9 @@ const Poster = styled.div`
 `;
 
 export default () => {
-  let { id } = useParams(); // Occurs type Error that id is not Integer Value.
-  id = parseInt(id); // Type Change. (for this, changed const id --> let id)
+  const { id } = useParams(); // Occurs type Error that id is not Integer Value.
   const { loading, data } = useQuery(GET_MOVIE, {
-    variables: { id },
+    variables: { id: parseInt(id) }, // Type Change.
   });
 
   return (
