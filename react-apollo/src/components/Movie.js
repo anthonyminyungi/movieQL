@@ -6,7 +6,6 @@ import { useMutation } from '@apollo/react-hooks';
 
 const LIKE_MOVIE = gql`
   mutation toggleLikeMovie($id: Int!, $isLiked: Boolean!) {
-    mutation
     toggleLikeMovie(id: $id, isLiked: $isLiked) @client
   }
 `;
@@ -15,7 +14,6 @@ const Container = styled.div`
   height: 380px;
   width: 100%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  overflow: hidden;
   border-radius: 7px;
 `;
 
